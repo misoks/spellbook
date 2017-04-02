@@ -1,0 +1,272 @@
+* {
+	box-sizing: border-box;
+	transition: opacity 1s ease;
+	opacity: 1;
+}
+*:focus,
+*:focus:hover {
+	outline: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    opacity: 0;
+}
+.fade-in {
+	opacity: 0;
+}
+.fade-in.faded {
+	opacity: 1;
+}
+body, html{
+	height: 100%;
+	width: 100%;
+	position: relative;
+	margin: 0;
+	font-size: 16px;
+}
+body {
+	font-family: "Segoe UI", "Roboto", "Verdana", sans-serif;
+	background-color: #169857;
+	color: white;
+	line-height: 1.5;
+}
+h1,h2,h3,h4,h5 {
+	font-family: "Times New Roman", serif;
+	font-style: italic;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.label, th {
+	font-family: "Times New Roman", serif;
+	font-style: italic;
+	opacity: .6;
+	font-size: .9rem;
+}
+table {
+	border-collapse: collapse;
+	table-layout: fixed;
+	display: block;
+    height: 100%;
+}
+thead,
+tbody {
+	display: block;
+}
+tr {
+	display: flex;
+	align-items: baseline;
+	justify-content: flex-start;
+}
+	thead tr {
+		align-items: flex-end;
+	}
+	tbody tr:hover {
+		background-color: rgba(255,255,255,.05);
+	}
+
+th, td {
+	vertical-align: baseline;
+	text-align: left;
+	padding: .5rem 0 .5rem .2rem;
+	overflow: hidden;
+}
+th {
+	font-weight: normal;
+	height: 2rem;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+input,
+select,
+textarea,
+.button {
+	font-family: "Times New Roman", serif;
+	font-style: italic;
+	box-shadow: none;
+	border: none;
+	font-size: 1.5rem;
+	padding: .6rem 1rem .4rem;
+	width: 100%;
+	height: auto;
+	box-shadow: inset 0px 0px 0px 1px white;
+	display: block;
+	border-radius: 4px;
+	height: 3rem;
+	background-color: rgba(255,255,255,.0);
+	color: white;
+}
+input::placeholder,
+select option:disabled {
+	color: rgba(255,255,255,1);
+}
+input:focus,
+select:focus,
+textarea:focus {
+	background-color: rgba(255,255,255,1);
+	color: black;
+}
+.spell-filter a,
+.spell-filter a:hover,
+.spell-filter a:visited,
+.spell-filter a:active {
+	color: #47d3ff;
+	text-decoration: none;
+}
+.button,
+a.button {
+	background-color: #47d3ff;
+	color: black;
+	cursor: pointer;
+	display: inline-block;
+	width: auto;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	line-height: 1.1;
+	text-decoration: none;
+}
+.button:hover {
+	background-color: #00bcf7;
+}
+.button:active {
+	background-color: #017cad;
+	color: white;
+}
+.checkbox {
+	position: absolute;
+	left: -1000px;
+	opacity: 0;
+}
+.checkbox + label {
+	display: flex;
+    cursor: pointer;
+    padding: .2rem 0;
+    align-items: center;
+}
+.checkbox:focus + label:before {
+	box-shadow: inset 0px 0px 0px 3px white;
+}
+.checkbox + label:hover {
+	background-color: rgba(255,255,255,.1);
+}
+.checkbox + label:before {
+	content: " ";
+	display: inline-block;
+	box-shadow: inset 0px 0px 0px 1px white;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 4px;
+	margin-right: .5rem;
+}
+.checkbox:checked + label:before {
+	background-color: #47d3ff;
+}
+
+.field--stacked {
+	display: block;
+	margin: 1rem 0;
+}
+	.fields--inline {
+		display: flex;
+		justify-content: space-between;
+	}
+	.fields--inline .field {
+		width: auto;
+		flex-grow: 1;
+	}
+	.fields--inline .field + .field {
+		margin-left: 1rem;
+	}
+	.field--stacked .label,
+	.field--stacked .value {
+		display: block;
+	}
+
+/*Layout */
+.spell-wrapper {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.spell-filter,
+.spell-container {
+	display: flex;
+	justify-content: center;
+}
+.spell-filter > *,
+.spell-container > * {
+	width: 100%;
+	max-width: 900px;
+	padding: 0 20px;
+}
+.spell-filter {
+	height: 5rem;
+	min-height: 5rem;
+	padding: 1rem 0;
+	background: #1a1e23;
+	border-bottom: 1px solid #668c75;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+.spell-container {
+	flex-grow: 1;
+}
+.spells {
+	margin-top: 5rem;
+}
+.spell {
+	display: flex;
+	flex-direction: row;
+	padding: 1.5rem 0;
+}
+	.spell + .spell {
+		border-top: 1px solid rgba(255,255,255,.1);
+	}
+	.spell__body {
+		width: 100%;
+	}
+	.spell__header {
+		display: flex;
+		flex-direction: row;
+	}
+		.spell__header__main {
+			flex-grow: 1;
+		}
+		.spell__classes .label,
+		.spell__classes .value {
+			text-align: right;
+		}
+	.spell__level {
+		max-width: 50px;
+		min-width: 50px;
+		text-align: left;
+		font-size: 4rem;
+		line-height: .85;
+		font-weight: 200;
+		font-family: "Times New Roman";
+		margin-right: 1rem;
+	}
+	.spell__level .label {
+		line-height: 1;
+	}
+		.spell__classes__class:after {
+			content: ", ";
+		}
+		.spell__classes__class:last-child:after {
+			content: "";
+		}
+	.spell__name {
+		font-weight: normal;
+		font-size: 2rem;
+	}
+	.spell__desc {
+		margin: 1rem 0;
+	}
+.class-list {
+	column-count: 4;
+}
+.class-list > * {
+	-webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+}
